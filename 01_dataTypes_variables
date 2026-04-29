@@ -1,1 +1,52 @@
+/*
+1. SECTION, Concept in my own words
 
+I like to think of variables as different sized boxes in my computer's memory where
+I can store info to use later. Before I can use a box, I have to tell C# what "datatype"
+it is so the computer knows exactly how much space to save for it. For example,
+if I'm saving a whole number, I use an int, but if I need text, I use a string.
+The execution starts when the program reads the declaration,creates that
+space in memory, and then puts a value inside it. Without variables,
+our code would be fixed because we wouldn't have a way to remember or change
+data while the program is running. It's basically how we keep track of everything,
+from a user's name to the result of a math problem.
+
+2. SECTION, Key C# Syntax 
+
+To use variables in C#, we first need to declare them by specifying the data type followed
+by a unique identifier (the name). We use the assignment operator (=) to give it a value.
+If we don't give it a value right away, we are just declaring it; if we do, we are initializing it.
+
+example:*/
+
+int studentAge = 26;           
+string studentName = "Tatiana";   
+double price = 19.99;
+char genderStudent = 'F';
+bool isAproved = true;
+float averageStudent = 80.5f;
+
+/*
+3. SECTION, Eureka Exercise/Moment
+
+a) What was confusing at first? 
+At first, it was really confusing for me to understand and remember what each variable type is
+for and how many bits of memory they use—especially the difference between double and float.
+
+b) What mistake were you making? 
+I usually make the mistake of capitalizing the first letter of a variable, and also forgetting 
+to add the 'f' at the end of a float value.
+
+c) What finally made sense? 
+I started to get it when the teacher showed me a chart, explaining it as if they were boxes or
+a parking lot. Each car has to park in a spot with enough space for it. That's when I realized
+it's the same with variable types—I need to consider the bits I'm going to use to choose the 
+right type.
+
+4. SECTION, Describe one common mistake you made with this concept and why it happened. 
+
+Forgetting to put a semicolon (;) at the end of the line or using single quotes for strings.
+
+5.Research References
+
+I used the material from our class activities and YouTube tutorials.*/
