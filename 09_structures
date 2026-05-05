@@ -1,3 +1,84 @@
 
 
-1.
+1./*
+1. SECTION, Concept in my own words
+
+I see a Struct as a "custom container" that allows me to group different types of information that belong together. Before this, if I wanted to store information
+about a student, I had to create separate variables for their ID, their Name, and their GPA. It was a mess! Now, with a Struct, I can create a single type called 
+Student that holds all those details inside. It’s like creating a digital ID card. I’ve learned that Structs are "Value Types," which means they behave similarly
+to integers or floats—they store the actual data directly, and you have to make sure they have values assigned before you try to use them.
+
+2. SECTION, Key C# Syntax
+
+The way we define and use Structs is very organized. We usually define the structure outside of our main logic so it can be used anywhere in the program.
+
+We use the struct keyword and follow PascalCase for the name and its members. We also use the public keyword so the information is accessible.
+
+EXAMPLE:
+*/
+struct Student
+{
+    public long Id;  
+    public string Name;
+    public float GPA;
+}
+
+// 1. 
+Student s1;
+s1.Id = 202600001;
+s1.Name = "Jane Smith";
+s1.GPA = 4.0f;
+
+Student[] ap1Students = new Student[10]; 
+ap1Students[0] = s1; // Storing the first student in the first slot
+
+void DisplayStudentInfo(Student aStudent) 
+{
+    Console.WriteLine($"ID: {aStudent.Id}");
+    Console.WriteLine($"Name: {aStudent.Name}");
+    Console.WriteLine($"GPA: {aStudent.GPA}");
+}
+/*
+
+PascalCase: As the professor taught us, both the Struct name and its internal fields (Id, Name) should start with a capital letter.
+
+Value Types: Unlike objects that might point to a location in memory, structs contain the values themselves.
+
+Encapsulation: It allows us to pass a whole "package" of data to functions like DisplayStudentInfo or return a package from functions like FillStudentInfo().
+
+
+3. SECTION, Eureka Exercise/Moment
+
+a) What was confusing at first?
+
+At first, I didn't get why I couldn't just print the whole struct by saying Console.WriteLine(s1). I expected it to show me all the data automatically, but instead,
+it just showed the name of the Struct (System.Student). It was also confusing to realize that even though it feels like an object, I have to manually initialize every
+single field inside it before I can use it, or the compiler will complain.
+
+b) What mistake were you making?
+
+A big mistake I made was trying to access a field that I hadn't assigned a value to yet. For example, if I only set the Name but forgot the Id, the program wouldn't 
+let me pass that student to a function. I also struggled with the syntax of arrays of structs; I kept thinking I had to do something special, but it's actually the same
+new Student[10] syntax we used for basic arrays.
+
+c) What finally made sense?
+
+Everything clicked for me when we did the Linear Search to find students with a GPA higher than 4.0. Before using structs, I would have had to manage three different
+arrays and try to keep them all synced up, which was a nightmare. But seeing how I could just go through the ap1Students array and access the specific data I needed 
+with a simple dot, like ap1Students[i].GPA, made the whole logic feel so much more professional and organized.
+
+I also had a "lightbulb moment" when I realized that a Struct is a Value Type. At first, I was confused because I thought they were like arrays, but then I saw that
+if I didn't manually assign a value to each field (like the Id or the Name), the program wouldn't even let me print them. Using functions like FillStudentInfo() and 
+DisplayStudentInfo() really showed me the power of "packaging" data; instead of passing three separate variables to a function, I was just passing one single Student
+object that had everything inside. It made me realize that programming is much easier when you group things that belong together instead of keeping them scattered 
+everywhere.
+
+4. SECTION, Describe one common mistake you made with this concept and why it happened. 
+
+The most common error is forgetting that Structs are Value Types. If you create an array of Structs but don't fill the slots, they contain default values
+(like 0 for numbers), but if you try to use an uninitialized single struct variable, your code won't even run. Also, forgetting the public keyword inside the
+struct definition is a classic mistake—without it, you won't be able to access the Name or Id from your main program.
+
+5.Research References
+
+Microsoft Learn: Structure types (C# reference), W3Schools: C# Structs, GeeksforGeeks: C# Structs, classwork activities.
